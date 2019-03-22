@@ -52,7 +52,8 @@ endif
 ERL_CFLAGS ?= -I$(ERL_EI_INCLUDE_DIR)
 ERL_LDFLAGS ?= -L$(ERL_EI_LIBDIR) -lei
 
-HAL_SRC ?= src/hal_sysfs.c src/hal_sysfs_interrupts.c src/hal_rpi.c
+# HAL_SRC ?= src/hal_sysfs.c src/hal_sysfs_interrupts.c src/hal_rpi.c
+HAL_SRC ?= src/hal_cdev.c
 HAL_SRC += src/nif_utils.c
 SRC =$(HAL_SRC) src/gpio_nif.c
 HEADERS =$(wildcard src/*.h)
