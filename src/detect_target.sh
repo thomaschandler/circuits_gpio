@@ -17,6 +17,13 @@ if [ -e /opt/vc/include/bcm_host.h ]; then
     EXTRA_CFLAGS=-I/opt/vc/include
 fi
 
+#
+# asdf check
+#
+if type asdf > /dev/null; then
+    EXTRA_CFLAGS="$EXTRA_CFLAGS -std=c99 -D _POSIX_C_SOURCE=199309L"
+fi
+
 $CC $CFLAGS $EXTRA_CFLAGS -o /dev/null -xc - 2>/dev/null <<EOF
 #include <bcm_host.h>
 
